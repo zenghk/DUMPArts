@@ -36,3 +36,9 @@ for j in {1,2};do cd ku${j};for i in `echo Ig.*`;do cd ${i};python3 MergeVRandUM
 
 #Assemble the clones according to the result of VJ+CDR3nt
 for j in {1,2};do cd ku${j};for i in `echo Ig.*`;do cd ${i};python3 AssembleClone.py Seqinfo.txt Clones2.txt;cd ../;done;cd ../;done
+
+#Calculate the K mer in each files
+for j in {1,2};do cd ku${j};for i in `echo Ig.*`;do cd ${i};python3 GetKmer.py Seqinfo.txt Kmer.txt;cd ../;done;cd ../;done
+
+#Get the consensus sequences
+for j in {1,2};do cd ku${j};for i in `echo Ig.*`;do cd ${i};python3 GetConsensus_V2.py Seqinfo.txt Kmer.txt Consensusfile.txt;cd ../;done;cd ../;done
