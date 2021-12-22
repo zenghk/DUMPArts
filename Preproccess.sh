@@ -32,7 +32,7 @@ for j in {1,2};do cd ku${j};for i in `echo Ig.*`;do cd ${i};python3 SumupIgblast
 for j in {1,2};do python3 SumupUMIandBarcode.py ${j};done
 
 #Merge barcode information, UMI information, Igblast result into one file
-for j in {1,2,4,5,6,7,8};do cd ku${j};for i in `echo Ig.*`;do cd ${i};python3 MergeVRandUMI.py Seqinfo.txt UMIinfo.txt SeqUMI.txt;cd ../;done;cd ../;done
+for j in {1,2};do cd ku${j};for i in `echo Ig.*`;do cd ${i};python3 MergeVRandUMI.py Seqinfo.txt UMIinfo.txt SeqUMI.txt;cd ../;done;cd ../;done
 
 #Assemble the clones according to the result of VJ+CDR3nt
 for j in {1,2};do cd ku${j};for i in `echo Ig.*`;do cd ${i};python3 AssembleClone.py Seqinfo.txt Clones2.txt;cd ../;done;cd ../;done
